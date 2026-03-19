@@ -1,5 +1,5 @@
 streamlit
 pandas
-python-oracledb
+oracledb
 python-dotenv
 python-bcb
