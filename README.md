@@ -11,4 +11,7 @@ Motor Relacional (Transformação e Lógica): A modelagem dos dados baseia-se em
 .
 Frontend (Apresentação e Interatividade): A camada visual é um Dashboard web multipágina, de roteamento inteligente, construído inteiramente em Python com o framework Streamlit
 . A interface aplica as melhores práticas de UI/UX, exibindo métricas de fácil leitura e gráficos de linha recomendados para séries temporais (sem distorções visuais)
+.
+[Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sistema-financeiro-full-stack-sh6ncmvfwzwmdguworjasw.streamlit.app)
+
 . Para garantir alta performance de rede e prevenir gargalos no banco de dados, o sistema faz uso avançado do gerenciamento de cache em memória RAM através do decorador @st.cache_data
