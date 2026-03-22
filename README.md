@@ -1,16 +1,37 @@
-# Sistema-Financeiro-Full-Stack
-O projeto desenvolvido é um Sistema Financeiro Full-Stack de Análise Macroeconômica, projetado sob rigorosos padrões de Engenharia de Software e Banco de Dados. A sua arquitetura validada e estruturada divide-se nas seguintes camadas técnicas fundamentais:
-Fonte de Dados (Extração): O sistema consome informações em tempo real da API de Dados Abertos do Banco Central do Brasil
-. A extração é realizada via Python utilizando a biblioteca python-bcb, que acessa o Sistema Gerenciador de Séries Temporais (SGS) para a Taxa Selic, o endpoint de Expectativas para o Boletim FOCUS e o módulo de moedas (PTAX) para a cotação comercial de compra e venda do Dólar
-.
-Banco de Dados e Segurança (Armazenamento): Toda a persistência de dados ocorre em um banco de dados relacional em nuvem, o Oracle FreeSQL Cloud
-. A comunicação backend opera através da biblioteca python-oracledb no modo Thin, e a infraestrutura obedece aos mais altos padrões de Higiene Digital e Segurança da Informação: as credenciais do banco nunca são expostas no código-fonte, sendo estritamente geridas por variáveis de ambiente em um arquivo .env através da biblioteca python-dotenv
-.
-Motor Relacional (Transformação e Lógica): A modelagem dos dados baseia-se em tabelas de domínio isoladas para cada indicador (TB_COTACAO_DOLAR, TB_TAXA_SELIC e TB_BOLETIM_FOCUS)
-. O sistema delega o processamento pesado de cruzamento de dados e cálculo de indicadores matemáticos (como o TWAP) diretamente para o motor do Oracle, utilizando instruções SQL complexas com múltiplos INNER JOIN e funções agregadas como AVG() e COUNT()
-.
-Frontend (Apresentação e Interatividade): A camada visual é um Dashboard web multipágina, de roteamento inteligente, construído inteiramente em Python com o framework Streamlit
-. A interface aplica as melhores práticas de UI/UX, exibindo métricas de fácil leitura e gráficos de linha recomendados para séries temporais (sem distorções visuais)
-.
-[Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sistema-financeiro-full-stack-sh6ncmvfwzwmdguworjasw.streamlit.app)
-. Para garantir alta performance de rede e prevenir gargalos no banco de dados, o sistema faz uso avançado do gerenciamento de cache em memória RAM através do decorador @st.cache_data
+# 📊 Sistema Financeiro Full-Stack
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)(https://sistema-financeiro-full-stack-sh6ncmvfwzwmdguworjasw.streamlit.app/)]
+
+Este projeto é uma aplicação analítica de ponta a ponta desenvolvida para monitoramento macroeconômico, unindo extração de dados automatizada (ETL), modelagem de banco de dados relacional em nuvem e visualização interativa.
+
+## 🏛️ Arquitetura do Projeto
+
+O sistema foi construído sob uma arquitetura modular, separando responsabilidades de infraestrutura, engenharia de dados e frontend:
+
+1. **Banco de Dados (Oracle Cloud Free Tier):** Modelagem normalizada com chaves primárias e estrangeiras, preparada para receber múltiplas moedas de forma escalável.
+2. **Engenharia de Dados (ETL em Python):** Scripts independentes que consomem a API OData do Banco Central do Brasil (SGS e PTAX), aplicam regras de negócio (como deduplicação e cálculo de volume simulado) e realizam inserção massiva (`executemany`) no banco de dados.
+3. **Frontend (Streamlit):** Dashboards interativos e cacheados, garantindo alta performance na renderização de métricas (TWAP/VWAP) e gráficos de volatilidade.
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Linguagem:** Python 3
+* **Banco de Dados:** Oracle SQL (Cloud)
+* **Bibliotecas de Dados:** Pandas, python-bcb
+* **Visualização:** Streamlit, Plotly
+* **Segurança e Conexão:** oracledb, python-dotenv (Variáveis de Ambiente)
+
+## 🗂️ Estrutura de Banco de Dados
+
+O ecossistema utiliza tabelas relacionais para garantir integridade e performance:
+* `TB_MOEDA`: Tabela de domínio (Dólar, Euro).
+* `TB_COTACAO`: Tabela fato normalizada contendo histórico diário e volumes.
+* `TB_TAXA_SELIC`: Histórico da meta de juros do Copom.
+* `TB_BOLETIM_FOCUS`: Projeções de mercado.
+
+## 🚀 Como Executar Localmente
+
+1. Clone este repositório.
+2. Crie um arquivo `.env` na raiz do projeto com as suas credenciais do Oracle Cloud (`DB_USER`, `DB_PASS`, `DB_DSN`).
+3. Instale as dependências executando: `pip install -r requirements.txt`.
+4. (Opcional) Execute os scripts de carga (`carga_moedas.py`, `carga_selic.py`) para popular seu banco.
+5. Inicie a aplicação web com o comando: `streamlit run app.py`.

@@ -1,1 +1,7 @@
+# Ignorar credenciais de banco de dados
 .env
+
+# Ignorar pastas de cache do Python e do Streamlit
+__pycache__/
+.pytest_cache/
+.vscode/
