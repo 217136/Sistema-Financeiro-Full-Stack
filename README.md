@@ -34,4 +34,4 @@ O ecossistema utiliza tabelas relacionais para garantir integridade e performanc
 2. Crie um arquivo `.env` na raiz do projeto com as suas credenciais do Oracle Cloud (`DB_USER`, `DB_PASS`, `DB_DSN`).
 3. Instale as dependências executando: `pip install -r requirements.txt`.
 4. (Opcional) Execute os scripts de carga (`carga_moedas.py`, `carga_selic.py`) para popular seu banco.
-5. Inicie a aplicação web com o comando: `streamlit run app.py`.
+5. Inicie a aplicação web com o comando: `streamlit run frontend.py`.
