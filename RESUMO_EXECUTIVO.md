@@ -44,6 +44,7 @@ O painel gera **inteligência financeira** baseada em dados:
 1. **Por que Oracle e não NoSQL?** Dados financeiros exigem regras estritas (*Constraints*). Quando um dado duplicado tenta entrar, o banco gera o erro `ORA-00001` e barra a operação, provando que a segurança relacional funciona.
 2. **Por que esconder senhas no Streamlit Secrets?** O código é aberto (Open Source), mas credenciais de banco não podem ser expostas. Criamos um "cofre" virtual na nuvem, aplicando conceitos de *DevSecOps*.
 3. **Por que o volume simulado?** Para focar na arquitetura e manter o custo do projeto em R$ 0,00 (*Cost Avoidance*). O volume sintético homologa perfeitamente as funções de agregação (SUM, AVG) exigidas pelo laboratório de Banco de Dados.
+4. **Eficiência em Manutenção de Segurança:** Em abril de 2026, o sistema passou por uma migração crítica de protocolos de segurança (de mTLS para TLS) devido à expiração global de certificados G1. Graças à arquitetura baseada em variáveis de ambiente (.env e Streamlit Secrets), a transição foi realizada com zero alteração de código, garantindo a continuidade do serviço e a integridade da conexão com o Oracle Cloud de forma transparente e segura.
 
 ---
 
