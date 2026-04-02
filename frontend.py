@@ -14,7 +14,7 @@ st.subheader("Plataforma Analítica de Indicadores Macroeconômicos")
 st.markdown("---")
 
 # 3. Contextualização do Projeto
-col1, col2 = st.columns([2, 2])
+col1, col2 = st.columns([2, 1])
 
 with col1:
     st.markdown("""
@@ -24,9 +24,8 @@ with col1:
     
     #### 🎯 Navegação (Menu Lateral)
         
-    * **1️⃣ Moedas, TWAP e VWAP:** Análise diária da volatilidade de moedas estrangeiras (Dólar e Euro), incluindo o cálculo de métricas de execução institucional:
-        * **TWAP:** Preço Médio Ponderado pelo Tempo.
-        * **VWAP:** Preço Médio Ponderado pelo Volume.
+    * **1️⃣ Moedas, TWAP e VWAP:** Análise diária da volatilidade de moedas estrangeiras (Dólar e Euro), incluindo o cálculo de métricas de execução institucional: (TWAP e VWAP)
+        
     * **2️⃣ Macroeconomia Integrada:** Um cruzamento relacional que demonstra na prática o efeito "gangorra" entre o Câmbio, a Taxa Selic e as Expectativas do Mercado (Boletim Focus).
     """)
 
