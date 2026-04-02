@@ -11,11 +11,11 @@ load_dotenv()
 
 # --- 1. CONFIGURAÇÃO DA INTERFACE ---
 st.title("Visão Macroeconômica Integrada")
-st.write("Cruzamento Relacional: Câmbio, Selic e Boletim FOCUS")
+
 
 with st.expander("📚 Entenda a Relação: Câmbio, Juros e Expectativas"):
     st.markdown("""
-    **Os Três Pilares da Análise:**
+    **Os Três Pilares da Análise:** 
     * 💵 **Câmbio (Dólar/Euro):** Preço da moeda estrangeira. Sofre variação diária constante guiada pelo mercado global e fluxo de capital.
     * 🏦 **Taxa Selic (Juros):** Taxa básica da economia definida pelo Banco Central (Copom) a cada 45 dias para tentar controlar a inflação.
     * 🔮 **Boletim Focus (Expectativas):** Pesquisa semanal oficial que mostra a projeção mediana do mercado financeiro para onde a Selic vai parar no fim do ano.
@@ -105,7 +105,7 @@ if dados_macro:
     df_mensal = df_macro.resample('ME').mean()
 
     # TOPO: Cartões de Métricas
-    st.write("### Panorama Atual")
+    st.write("### Panorama Atual") st.write("Cruzamento Relacional: Câmbio, Selic e Boletim FOCUS")
     ultima_linha = df_macro.iloc[-1] 
     
     col1, col2, col3 = st.columns(3)
