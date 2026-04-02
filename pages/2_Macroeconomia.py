@@ -105,7 +105,7 @@ if dados_macro:
     df_mensal = df_macro.resample('ME').mean()
 
     # TOPO: Cartões de Métricas
-    st.write("### Panorama Atual - Cruzamento Relacional: Câmbio, Selic e Boletim FOCUS")
+    st.write("### Panorama Atual" ("(Cruzamento Relacional: Câmbio, Selic e Boletim FOCUS)"))
     ultima_linha = df_macro.iloc[-1] 
     
     col1, col2, col3 = st.columns(3)
