@@ -24,8 +24,7 @@ with col1:
     
     #### 🎯 Navegação (Menu Lateral)
         
-    * **1️⃣ Moedas, TWAP e VWAP:** Análise diária da volatilidade de moedas estrangeiras (Dólar e Euro), incluindo o cálculo de métricas de execução institucional: (TWAP e VWAP)
-        
+    * **1️⃣ Moedas, TWAP e VWAP:** Análise diária da volatilidade de moedas estrangeiras (Dólar e Euro), incluindo o cálculo de métricas de execução institucional (TWAP e VWAP).
     * **2️⃣ Macroeconomia Integrada:** Um cruzamento relacional que demonstra na prática o efeito "gangorra" entre o Câmbio, a Taxa Selic e as Expectativas do Mercado (Boletim Focus).
     """)
 
