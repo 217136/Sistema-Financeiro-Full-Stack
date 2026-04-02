@@ -29,7 +29,7 @@ try:
 
     # Instrução SQL parametrizada com Variáveis de Ligação (Bind Variables)
     comando_insercao = """
-        INSERT INTO TB_TAXA_SELIC (DATA_REFERENCIA, VALOR_META_SELIC) 
+        INSERT INTO TB_TAXA_SELIC (DATA_TAXA, VALOR_TAXA) 
         VALUES (:1, :2)
     """
 
