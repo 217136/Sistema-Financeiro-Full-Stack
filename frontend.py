@@ -25,19 +25,6 @@ with col1:
     #### 🎯 Navegação (Menu Lateral)
     👈 **Utilize o menu à esquerda para acessar os módulos:**
     
-   with col1:
-    st.markdown("""
-    ### Bem-vindo ao Painel de Controle
-    
-    with col1:
-    st.markdown("""
-    ### Bem-vindo ao Painel de Controle
-    
-    Este sistema foi desenvolvido como uma aplicação de ponta a ponta, aplicando conceitos avançados de **Engenharia de Dados** e **Modelagem Relacional**. O objetivo é monitorar e cruzar os principais indicadores da economia brasileira com base em fontes oficiais.
-    
-    #### 🎯 Navegação (Menu Lateral)
-    👈 **Utilize o menu à esquerda para acessar os módulos:**
-    
     * **1️⃣ Moedas, TWAP e VWAP:** Análise diária da volatilidade de moedas estrangeiras (Dólar e Euro), incluindo o cálculo de métricas de execução institucional:
         * **TWAP:** Preço Médio Ponderado pelo Tempo. Mostra a tendência do ativo diluída ao longo das horas do dia.
         * **VWAP:** Preço Médio Ponderado pelo Volume. Revela o "preço justo" da moeda, mostrando onde o grande volume de dinheiro institucional realmente foi negociado.
