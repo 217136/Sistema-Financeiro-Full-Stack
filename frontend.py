@@ -26,8 +26,8 @@ with col1:
     👈 **Utilize o menu à esquerda para acessar os módulos:**
     
     * **1️⃣ Moedas, TWAP e VWAP:** Análise diária da volatilidade de moedas estrangeiras (Dólar e Euro), incluindo o cálculo de métricas de execução institucional:
-        * **TWAP:** Preço Médio Ponderado pelo Tempo. Mostra a tendência do ativo diluída ao longo das horas do dia.
-        * **VWAP:** Preço Médio Ponderado pelo Volume. Revela o "preço justo" da moeda, mostrando onde o grande volume de dinheiro institucional realmente foi negociado.
+        * **TWAP:** Preço Médio Ponderado pelo Tempo.
+        * **VWAP:** Preço Médio Ponderado pelo Volume.
     * **2️⃣ Macroeconomia Integrada:** Um cruzamento relacional que demonstra na prática o efeito "gangorra" entre o Câmbio, a Taxa Selic e as Expectativas do Mercado (Boletim Focus).
     """)
 
