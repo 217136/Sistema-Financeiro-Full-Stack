@@ -18,11 +18,11 @@ col1, col2 = st.columns([2, 1])
 
 with col1:
     st.markdown("""
-    #### Bem-vindo ao Painel de Controle
+    ### Bem-vindo ao Painel de Controle
     
     Este sistema foi desenvolvido como uma aplicação de ponta a ponta, aplicando conceitos avançados de **Engenharia de Dados** e **Modelagem Relacional**. O objetivo é monitorar e cruzar os principais indicadores da economia brasileira com base em fontes oficiais.
     
-    #### 🎯 Navegação (Menu Lateral)
+    ### 🎯 Navegação (Menu Lateral)
         
     * **1️⃣ Moedas, TWAP e VWAP:** Análise diária da volatilidade de moedas estrangeiras (Dólar e Euro), incluindo o cálculo de métricas de execução institucional (TWAP e VWAP).
     * **2️⃣ Macroeconomia Integrada:** Um cruzamento relacional que demonstra na prática o efeito "gangorra" entre o Câmbio, a Taxa Selic e as Expectativas do Mercado (Boletim Focus).
