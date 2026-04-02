@@ -14,7 +14,7 @@ st.subheader("Plataforma Analítica de Indicadores Macroeconômicos")
 st.markdown("---")
 
 # 3. Contextualização do Projeto
-col1, col2 = st.columns([3, 1])
+col1, col2 = st.columns([4, 1])
 
 with col1:
     st.markdown("""
