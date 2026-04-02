@@ -11,7 +11,7 @@ load_dotenv()
 
 # --- 1. CONFIGURAÇÃO DA INTERFACE ---
 st.title("Visão Macroeconômica Integrada")
-
+st.write("(Cruzamento Relacional: Câmbio, Selic e Boletim FOCUS)")
 
 with st.expander("📚 Entenda a Relação: Câmbio, Juros e Expectativas"):
     st.markdown("""
@@ -106,7 +106,7 @@ if dados_macro:
 
     # TOPO: Cartões de Métricas
     st.write("### Panorama Atual")
-    st.caption("(Cruzamento Relacional: Câmbio, Selic e Boletim FOCUS)")
+    
     ultima_linha = df_macro.iloc[-1] 
     
     col1, col2, col3 = st.columns(3)
