@@ -23,8 +23,7 @@ with col1:
     Este sistema foi desenvolvido como uma aplicação de ponta a ponta, aplicando conceitos avançados de **Engenharia de Dados** e **Modelagem Relacional**. O objetivo é monitorar e cruzar os principais indicadores da economia brasileira com base em fontes oficiais.
     
     #### 🎯 Navegação (Menu Lateral)
-    👈 **Utilize o menu à esquerda para acessar os módulos:**
-    
+        
     * **1️⃣ Moedas, TWAP e VWAP:** Análise diária da volatilidade de moedas estrangeiras (Dólar e Euro), incluindo o cálculo de métricas de execução institucional:
         * **TWAP:** Preço Médio Ponderado pelo Tempo.
         * **VWAP:** Preço Médio Ponderado pelo Volume.
