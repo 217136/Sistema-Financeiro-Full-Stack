@@ -65,11 +65,11 @@ def buscar_dados_macro(nome_moeda):
             SELECT 
                 c.DATA_COTACAO, 
                 c.PRECO_COMPRA, 
-                s.VALOR_META_SELIC, 
+                s.VALOR_TAXA, 
                 f.VALOR_EXPECTATIVA 
             FROM TB_COTACAO c 
             JOIN TB_MOEDA m ON c.ID_MOEDA = m.ID_MOEDA
-            LEFT JOIN TB_TAXA_SELIC s ON c.DATA_COTACAO = s.DATA_REFERENCIA 
+            LEFT JOIN TB_TAXA_SELIC s ON c.DATA_COTACAO = s.DATA_TAXA 
             LEFT JOIN TB_BOLETIM_FOCUS f ON c.DATA_COTACAO = f.DATA_REFERENCIA
             WHERE m.NOME_MOEDA = :1
             ORDER BY c.DATA_COTACAO ASC
