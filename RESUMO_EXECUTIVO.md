@@ -1,4 +1,5 @@
 Resumo Executivo: Sistema Financeiro Full Stack 🏦
+
 Este documento destrincha a arquitetura do projeto de forma didática e transparente, alinhando a visão de negócios com a Engenharia de Software e o Banco de Dados Relacional. O objetivo é nivelar o conhecimento entre todos os stakeholders (partes interessadas).
 
 🏛️ Parte 1: O Passo a Passo do Desenvolvimento
