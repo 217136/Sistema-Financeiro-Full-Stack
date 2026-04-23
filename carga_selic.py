@@ -11,6 +11,10 @@ dados_juros = sgs.get({'Selic': 432}, start='2024-01-01')
 # Trazendo a Data, que vem como índice, para uma coluna normal
 dados_juros = dados_juros.reset_index()
 
+# PASSO 1 DA HIGIENE: Garantir que não há duplicatas vindas da própria API
+# (O bcb geralmente nomeia a coluna de data como 'Date')
+dados_juros = dados_juros.drop_duplicates(subset=['Date'])
+
 # Transformando o DataFrame do Pandas na Matriz de Tuplas exigida pelo Oracle
 matriz_selic = [tuple(linha) for linha in dados_juros.values]
 
@@ -27,6 +31,10 @@ try:
     )
     cursor = conexao.cursor()
 
+    # PASSO 2 DA HIGIENE: Limpar a tabela antes de carregar os dados novos (TRUNCATE)
+    print("Executando TRUNCATE para limpar a base antiga e evitar ORA-00001...")
+    cursor.execute("TRUNCATE TABLE TB_TAXA_SELIC")
+
     # Instrução SQL parametrizada com Variáveis de Ligação (Bind Variables)
     comando_insercao = """
         INSERT INTO TB_TAXA_SELIC (DATA_TAXA, VALOR_TAXA) 
@@ -39,7 +47,7 @@ try:
     # Transação obrigatória para salvar as linhas fisicamente na nuvem
     conexao.commit()
 
-    print(f"Sucesso! {cursor.rowcount} registros da Selic foram inseridos no banco de dados!")
+    print(f"Sucesso! {cursor.rowcount} registros da Selic foram inseridos/atualizados no banco de dados!")
 
     # Higiene Digital
     cursor.close()

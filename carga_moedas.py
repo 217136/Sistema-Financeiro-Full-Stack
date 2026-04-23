@@ -2,11 +2,19 @@ import os
 import oracledb
 import pandas as pd
 import random
+from datetime import datetime
 from dotenv import load_dotenv
 from bcb import PTAX 
 
 print("Iniciando extração múltipla: Dólar e Euro via API OData (PTAX)...")
 ptax = PTAX()
+
+# --- DATAS DINÂMICAS ---
+# Pega a data atual do sistema e formata no padrão exigido pelo BCB (MM-DD-YYYY)
+data_hoje = datetime.now().strftime('%m-%d-%Y')
+data_inicio = '01-01-2024' # Pode manter fixo para garantir todo o histórico desde 2024
+
+print(f"Período de extração: {data_inicio} até {data_hoje}")
 
 # Dicionário de controle: Símbolo na API -> ID_MOEDA no banco de dados
 moedas_alvo = {
@@ -21,14 +29,13 @@ for simbolo, id_moeda in moedas_alvo.items():
     print(f"Buscando cotações para: {simbolo} (ID: {id_moeda})")
     
     # O Banco Central tem endpoints levemente diferentes para Dólar e outras moedas
+    # Agora utilizando as variáveis dinâmicas de data!
     if simbolo == 'USD':
         ep = ptax.get_endpoint('CotacaoDolarPeriodo')
-        df_moeda = ep.query().parameters(dataInicial='01-01-2024', dataFinalCotacao='03-22-2026').collect()
+        df_moeda = ep.query().parameters(dataInicial=data_inicio, dataFinalCotacao=data_hoje).collect()
     else:
         ep = ptax.get_endpoint('CotacaoMoedaPeriodo')
-        df_moeda = ep.query().parameters(moeda=simbolo, dataInicial='01-01-2024', dataFinalCotacao='03-22-2026').collect()
-
-    df_final = df_moeda[['dataHoraCotacao', 'cotacaoCompra', 'cotacaoVenda']]
+        df_moeda = ep.query().parameters(moeda=simbolo, dataInicial=data_inicio, dataFinalCotacao=data_hoje).collect()
 
     # 1. Fazemos uma cópia limpa das 3 colunas
     df_final = df_moeda[['dataHoraCotacao', 'cotacaoCompra', 'cotacaoVenda']].copy()
@@ -59,7 +66,7 @@ try:
     )
     cursor = conexao.cursor()
 
-    # Limpa a tabela antes da carga total
+    # Limpa a tabela antes da carga total (Nossa Higiene de Carga em ação)
     cursor.execute("TRUNCATE TABLE TB_COTACAO")
 
     # O INSERT agora aponta para a nova estrutura normalizada
